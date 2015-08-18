@@ -11,9 +11,6 @@ class Board
 	}
 	void drawBoard(Graphics g){
 
-		System.out.println("= counterGeracoes ===========================================");
-		System.out.println(counterGeracoes);
-		System.out.println("============================================");
 
 		if (counterGeracoes > 0){
 			for(Square square : squares){
@@ -26,34 +23,24 @@ class Board
 			}
 		}
 
-		System.out.println("============================================");
 
 		for(Square square : squares)
 		{	
-			System.out.println("-----------------------");
-			System.out.println(square.getX());
-			System.out.println(square.getY());
-			System.out.println(square.getAlive());
-			System.out.println(square.nearSquares(this));
 
 			if (square.getAlive()){
 				if (square.nearSquares(this) < 2){
-					System.out.println("vai morrer");
 					square.setWillLive(false);
 				}
 				else if (square.nearSquares(this) == 2 || square.nearSquares(this) == 3) {
-					System.out.println("vai viver");
 					square.setWillLive(true);
 				}
 				else if (square.nearSquares(this) > 3) {
-					System.out.println("vai morrer");
 					square.setWillLive(false);
 				}
 			}
 			else
 			{
 				if (square.nearSquares(this) == 3) {
-					System.out.println("vai reviver");
 					square.setWillLive(true);
 				}
 			}		

@@ -8,7 +8,7 @@ class GameOfLife implements ActionListener
 	JFrame frame = new JFrame("Porta100");
 	JButton botao1 = new JButton("cavar as gerações");
 	Board board;
-
+	PrintBoard boardFile = new PrintBoard();
 	public static void main(String [] args)
 	{								
 		GameOfLife gui = new GameOfLife();
@@ -60,7 +60,8 @@ class GameOfLife implements ActionListener
 		board.addSquare(square7);
 		board.addSquare(square8);							
 
-
+		boardFile.writeFile(board.squares);
+		
 		MyDrawPanel drawPanel = new MyDrawPanel();
 		frame.setSize(800,800);
 		frame.setVisible(true);
@@ -81,6 +82,7 @@ class GameOfLife implements ActionListener
 		{	
 					
 			board.drawBoard(g);
+			boardFile.writeFile(board.squares);
 
 		}
 	}
