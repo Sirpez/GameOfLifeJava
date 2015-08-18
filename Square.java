@@ -2,6 +2,7 @@ class Square{
 	private int x;
 	private int y;
 	private boolean alive;
+	private boolean willLive;
 
 	void setXY(int a, int b){
 		x = a;
@@ -17,12 +18,23 @@ class Square{
 	}
 
 	void setAlive(boolean aliveOrDead){
+		System.out.println("matando ou morrendo");
+		System.out.println(aliveOrDead);
 		alive = aliveOrDead;
 	}
 
-	boolean alive(){
+	boolean getAlive(){
 		return alive;
 	}
+
+	void setWillLive(boolean liveOrNot){
+		willLive = liveOrNot;
+	}
+
+	boolean getWillLive(){
+		return willLive;
+	}
+
 	int nearSquares(Board board){
 		int countNears = 0;
 

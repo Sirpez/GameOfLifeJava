@@ -16,6 +16,7 @@ class GameOfLife implements ActionListener
 	}											
 	public void go(){			
 		board = new Board();
+		botao1.addActionListener(this);
 
 		Square square1 = new Square();
 		Square square2 = new Square();					
@@ -61,15 +62,17 @@ class GameOfLife implements ActionListener
 
 
 		MyDrawPanel drawPanel = new MyDrawPanel();
-		frame.setSize(1920,1080);
+		frame.setSize(800,800);
 		frame.setVisible(true);
 		frame.getContentPane().add(BorderLayout.SOUTH,botao1);
 		frame.getContentPane().add(BorderLayout.CENTER,drawPanel);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}			
 	public 	void actionPerformed(ActionEvent e)
-	{		
-		frame.repaint();		
+	{
+		board.counterGeracoes++;		
+				
+		frame.repaint();
 	}	
 
 	class MyDrawPanel extends JPanel
